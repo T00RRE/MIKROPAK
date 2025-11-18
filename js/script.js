@@ -4,31 +4,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- 1. OBSŁUGA INTRO ANIMACJI ---
     const preloader = document.getElementById('preloader');
     const introLogo = document.querySelector('.intro-logo');
+    const introText = document.querySelector('.intro-text');
     const header = document.getElementById('main-header');
     const heroSection = document.getElementById('hero');
 
-    // Ustawienie czasów animacji (zgodnie z CSS)
-    const animationDuration = 3300; // 3s total
-    const waitDuration = 1000;      // 1s (33% of 3s) - czas na pojawienie się i pauzę
+    // Całkowity czas trwania animacji + opóźnienie na zniknięcie
+    const totalAnimationTime = 4000; 
+    const showContentDelay = 3000; // Kiedy pokazać resztę strony
 
-    // Krok 1: Wystartuj animację w CSS
+    // Start animacji
     setTimeout(() => {
-        introLogo.classList.add('start-animation'); 
+        introLogo.classList.add('start-animation');
+        introText.classList.add('start-animation');
     }, 50);
 
-    // Krok 2: Pokaż resztę strony, gdy logo zaczyna się przesuwać
+    // Pokaż resztę strony
     setTimeout(() => {
         header.classList.remove('hidden-on-load');
         heroSection.classList.remove('hidden-on-load');
-    }, waitDuration);
+    }, showContentDelay);
 
-    // Krok 3: Usuń preloader po zakończeniu całej animacji
+    // Usuń preloader
     setTimeout(() => {
         preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.remove();
-        }, 1200); // Czas na zniknięcie
-    }, animationDuration);
+        setTimeout(() => preloader.remove(), 1000);
+    }, totalAnimationTime);
 
     
     // --- 2. OBSŁUGA NAWIGACJI MOBILNEJ ---
