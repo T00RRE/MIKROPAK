@@ -289,14 +289,33 @@ body {
     color: var(--color-primary);
     text-decoration: none;
     display: block;
-    position: relative; /* Pozwoli na użycie 'top' i 'transform' do animacji */
-    transition: transform 1s ease-in-out, font-size 1s ease-in-out, scale 1s ease-in-out; 
+    position: relative;
+    opacity: 0; /* Start as invisible */
+}
+
+.intro-logo.start-animation {
+    animation: introAnimation 3s ease-in-out forwards;
+}
+
+@keyframes introAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(1);
+    }
+    33% { /* Fade in and wait */
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    100% { /* Move up and scale down */
+        opacity: 1;
+        transform: translateY(-44vh) scale(0.35);
+    }
 }
 
 /* Klasa dodana przez JS po animacji logo (logo się zmniejsza i przesuwa) */
 .logo-animate {
-    /* Pozycja docelowa logo: góra, środek, rozmiar docelowy navbaru (1.8rem) */
-    transform: translateY(-127vh); /* Przesunięcie w górę (wstępnie 40% wysokości widoku) */
+    /* This class is now a marker, but we can keep final state here for reference */
+    transform: translateY(-45vh);
     scale: 0.35;
 }
 
