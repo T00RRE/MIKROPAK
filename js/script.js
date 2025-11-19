@@ -141,3 +141,55 @@ function initProductTabs() {
 
 // Uruchom po załadowaniu DOM
 document.addEventListener('DOMContentLoaded', initProductTabs);
+// --- ANIMACJA SEKCJI KONTAKT ---
+
+function initContactAnimations() {
+    const contactItems = document.querySelectorAll('.contact-item');
+    const contactMap = document.querySelector('.contact-map');
+    
+    if (!contactItems.length) return;
+    
+    // Opcje dla Intersection Observer
+    const observerOptions = {
+        threshold: 0.2,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    // Callback dla animacji
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '0';
+                entry.target.style.transform = 'translateY(30px)';
+                entry.target.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                
+                // Dodaj opóźnienie dla każdego elementu
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, entry.target.dataset.delay || 0);
+                
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+    
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Obserwuj każdy element kontaktowy z opóźnieniem
+    contactItems.forEach((item, index) => {
+        item.dataset.delay = index * 100; // 100ms opóźnienia między elementami
+        observer.observe(item);
+    });
+    
+    // Obserwuj mapę
+    if (contactMap) {
+        contactMap.dataset.delay = contactItems.length * 100;
+        observer.observe(contactMap);
+    }
+}
+
+// Uruchom po załadowaniu DOM
+document.addEventListener('DOMContentLoaded', initContactAnimations);
+
+
