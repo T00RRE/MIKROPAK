@@ -344,3 +344,155 @@ body {
 
     }
 }
+
+/* --- SEKCJA O NAS --- */
+
+.about-section {
+    min-height: 100vh;
+    padding: 120px 0 80px;
+    background-color: #F5F5DC; /* Jasny beż, pasujący do reszty strony */
+    position: relative;
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Historia */
+.about-story {
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.about-story.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-story h2 {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.about-story p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-dark);
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about-story .about-cta {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--color-secondary);
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Wyróżniki */
+.about-features {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+}
+
+.about-features.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-features h3 {
+    font-size: 2rem;
+    color: var(--color-text-dark);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.feature-box {
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.feature-box:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Kolory dla poszczególnych boxów */
+.feature-fresh {
+    background-color: #C8E6C9; /* Pastelowa zieleń */
+}
+
+.feature-quality {
+    background-color: #F8BBD0; /* Pastelowy róż */
+}
+
+.feature-sustainable {
+    background-color: #B2DFDB; /* Pastelowy turkus */
+}
+
+.feature-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.feature-box h4 {
+    font-size: 1.3rem;
+    color: var(--color-text-dark);
+    margin-bottom: 15px;
+}
+
+.feature-box p {
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+/* Responsywność */
+@media (max-width: 992px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .about-story h2 {
+        font-size: 2rem;
+    }
+    
+    .about-features h3 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 100px 20px 60px;
+    }
+    
+    .about-story h2 {
+        font-size: 1.8rem;
+    }
+    
+    .about-story p {
+        font-size: 1rem;
+        text-align: left;
+    }
+    
+    .feature-box {
+        padding: 30px 20px;
+    }
+    
+    .feature-icon {
+        font-size: 3rem;
+    }
+}

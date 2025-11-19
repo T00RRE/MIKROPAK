@@ -52,3 +52,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+// --- ANIMACJA FADE-IN DLA SEKCJI O NAS ---
+
+// Funkcja obserwująca elementy przy scrollowaniu
+function initScrollAnimations() {
+    const aboutStory = document.querySelector('.about-story');
+    const aboutFeatures = document.querySelector('.about-features');
+    
+    if (!aboutStory || !aboutFeatures) return;
+    
+    // Opcje dla Intersection Observer
+    const observerOptions = {
+        threshold: 0.2, // Element musi być widoczny w 20%
+        rootMargin: '0px 0px -100px 0px' // Trigger trochę wcześniej
+    };
+    
+    // Callback gdy element wchodzi w viewport
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+                observer.unobserve(entry.target); // Przestań obserwować po animacji
+            }
+        });
+    };
+    
+    // Stwórz observer
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    
+    // Obserwuj elementy
+    observer.observe(aboutStory);
+    observer.observe(aboutFeatures);
+}
+
+// Uruchom po załadowaniu DOM
+document.addEventListener('DOMContentLoaded', initScrollAnimations);
