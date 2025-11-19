@@ -87,3 +87,57 @@ function initScrollAnimations() {
 
 // Uruchom po załadowaniu DOM
 document.addEventListener('DOMContentLoaded', initScrollAnimations);
+
+// --- OBSŁUGA ZAKŁADEK PRODUKTÓW ---
+
+function initProductTabs() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    if (!tabButtons.length || !tabContents.length) return;
+    
+    // Funkcja przełączania zakładek
+    function switchTab(targetTab) {
+        // Usuń active ze wszystkich buttonów i contentu
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        
+        // Dodaj active do klikniętego buttona
+        const clickedButton = document.querySelector(`.tab-button[data-tab="${targetTab}"]`);
+        if (clickedButton) {
+            clickedButton.classList.add('active');
+        }
+        
+        // Pokaż odpowiednią zawartość
+        const targetContent = document.querySelector(`.tab-content[data-tab="${targetTab}"]`);
+        if (targetContent) {
+            targetContent.classList.add('active');
+        }
+    }
+    
+    // Dodaj event listenery do buttonów
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const targetTab = button.getAttribute('data-tab');
+            switchTab(targetTab);
+        });
+    });
+    
+    // Obsługa URL hash (opcjonalne - jeśli ktoś wejdzie z linkiem #products-cut)
+    function checkUrlHash() {
+        const hash = window.location.hash;
+        if (hash.startsWith('#products-')) {
+            const tabName = hash.replace('#products-', '');
+            switchTab(tabName);
+        }
+    }
+    
+    // Sprawdź hash przy załadowaniu
+    checkUrlHash();
+    
+    // Sprawdź hash przy zmianie (np. cofnięcie w przeglądarce)
+    window.addEventListener('hashchange', checkUrlHash);
+}
+
+// Uruchom po załadowaniu DOM
+document.addEventListener('DOMContentLoaded', initProductTabs);
