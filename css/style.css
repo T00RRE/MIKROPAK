@@ -1109,7 +1109,14 @@ body {
         font-size: 0.85rem;
     }
 }
-
+.social-icon img {
+    position: relative;
+    top: 0px; /* Możesz dostosować tę wartość */
+}
+.nav-link-contact {
+    position: relative;
+    top: 3px; /* Możesz dostosować tę wartość */
+}
 
 
 
