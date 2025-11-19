@@ -396,6 +396,10 @@ body {
 }
 
 /* Wyróżniki */
+.about-section .container {
+    max-width: 100%;
+    padding: 0;
+}
 .about-features {
     opacity: 0;
     transform: translateY(30px);
@@ -405,6 +409,7 @@ body {
 .about-features.fade-in {
     opacity: 1;
     transform: translateY(0);
+    margin: 0;
 }
 
 .about-features h3 {
@@ -417,10 +422,11 @@ body {
 .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+
 }
 
 .feature-box {
-    padding: 70px 30px;
+    padding: 110px 50px;
     text-align: center;
 }
 
@@ -462,7 +468,6 @@ body {
 @media (max-width: 992px) {
     .features-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
     }
     
     .about-story h2 {
