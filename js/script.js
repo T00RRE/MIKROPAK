@@ -44,35 +44,76 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // --- 2. OBSŁUGA NAWIGACJI MOBILNEJ ---
     const menuToggle = document.querySelector('.menu-toggle');
-    const navLeft = document.querySelector('.nav-left');
-    const navRight = document.querySelector('.nav-right');
-    const allNavLinks = document.querySelectorAll('.main-nav a');
+    const mobileNavContainer = document.querySelector('.mobile-nav');
+    const body = document.body;
+
+    // Definicja linków dla mobilnego menu
+    const mobileNavLinks = [
+        { href: '#about', text: 'O nas' },
+        { href: '#products', text: 'Nasze produkty' },
+        { href: '#contact', text: 'Kontakt' },
+        { href: 'https://www.facebook.com/p/MikroPak-100057319125052/', text: 'Facebook', target: '_blank' }
+    ];
+
+    // Tworzenie menu mobilnego
+    if (mobileNavContainer) {
+        const ul = document.createElement('ul');
+        mobileNavLinks.forEach(linkData => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = linkData.href;
+            a.textContent = linkData.text;
+            if (linkData.target) {
+                a.target = linkData.target;
+                a.rel = 'noopener noreferrer';
+            }
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+        mobileNavContainer.appendChild(ul);
+    }
 
     const toggleMenu = () => {
-        navLeft.classList.toggle('is-open');
-        navRight.classList.toggle('is-open');
+        menuToggle.classList.toggle('is-active');
+        mobileNavContainer.classList.toggle('is-open');
+        body.classList.toggle('no-scroll');
     };
 
     menuToggle.addEventListener('click', toggleMenu);
 
-    allNavLinks.forEach(link => {
+    // Zamykanie menu po kliknięciu w link
+    const allMobileLinks = document.querySelectorAll('.mobile-nav a');
+    allMobileLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            // Smooth scroll for anchor links
             const href = link.getAttribute('href');
-            if (href && href.startsWith('#') && href.length > 1) {
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
                 const targetId = href.substring(1);
                 const targetElement = document.getElementById(targetId);
-
                 if (targetElement) {
-                    e.preventDefault();
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
             }
-
-            if (navLeft.classList.contains('is-open')) {
+            
+            // Zamknij menu po kliknięciu
+            if (mobileNavContainer.classList.contains('is-open')) {
                 toggleMenu();
+            }
+        });
+    });
+
+    // Płynne przewijanie dla linków w nawigacji desktopowej
+    const desktopNavLinks = document.querySelectorAll('.main-nav a');
+    desktopNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
     });
