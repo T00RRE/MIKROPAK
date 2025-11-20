@@ -45,7 +45,21 @@ document.addEventListener('DOMContentLoaded', function() {
     menuToggle.addEventListener('click', toggleMenu);
 
     allNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', (e) => {
+            // Smooth scroll for anchor links
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#') && href.length > 1) {
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
+
             if (navLeft.classList.contains('is-open')) {
                 toggleMenu();
             }
