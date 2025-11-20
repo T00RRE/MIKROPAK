@@ -300,19 +300,30 @@ body {
 }
 
 .intro-text {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: bold;
     color: var(--color-primary);
     opacity: 0;
     margin-top: 15px;
 }
 
+.intro-text-2 {
+    font-size: 2.5rem;
+    color: var(--color-text-dark);
+    opacity: 0;
+    margin-top: 10px;
+}
+
 .intro-logo.start-animation {
-    animation: logo-appear 1s ease-out forwards, logo-move 1.5s 2.5s ease-in-out forwards;
+    animation: logo-appear 1s ease-out forwards, logo-move 1.5s 3.5s ease-in-out forwards;
 }
 
 .intro-text.start-animation {
-    animation: text-fade-in-out 2s ease-in-out forwards;
+    animation: text-fade-in-out 3.5s ease-in-out forwards;
+}
+
+.intro-text-2.start-animation {
+    animation: text-fade-in-out 2s 1.5s ease-in-out forwards;
 }
 
 @keyframes logo-appear {
@@ -333,7 +344,7 @@ body {
 
 @keyframes logo-move {
     to {
-        transform: translateY(-41vh) scale(0.35);
+        transform: translateY(-37vh) scale(0.35);
     }
 }
 

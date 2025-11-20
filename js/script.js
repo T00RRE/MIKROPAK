@@ -5,17 +5,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const preloader = document.getElementById('preloader');
     const introLogo = document.querySelector('.intro-logo');
     const introText = document.querySelector('.intro-text');
+    const introText2 = document.querySelector('.intro-text-2');
     const header = document.getElementById('main-header');
     const heroSection = document.getElementById('hero');
 
     // Całkowity czas trwania animacji + opóźnienie na zniknięcie
-    const totalAnimationTime = 4000; 
-    const showContentDelay = 3000; // Kiedy pokazać resztę strony
+    const totalAnimationTime = 5000; 
+    const showContentDelay = 4000; // Kiedy pokazać resztę strony
 
     // Start animacji
     setTimeout(() => {
         introLogo.classList.add('start-animation');
         introText.classList.add('start-animation');
+        introText2.classList.add('start-animation');
     }, 50);
 
     // Pokaż resztę strony
