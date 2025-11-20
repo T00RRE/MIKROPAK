@@ -71,17 +71,30 @@ body {
 
 /* Logo */
 .logo {
-    /* font-size: 1.8rem; */
-    /* font-weight: bold; */
-    /* color: var(--color-primary); */
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    transition: color var(--transition-speed);
     padding: 0 30px; /* Add some space around the logo */
+    gap: 10px;
 }
 
 .logo img {
     width: auto;
     display: block;
+    transition: transform 0.5s ease-in-out;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    display: inline-block;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: width 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    vertical-align: middle;
 }
 
 .logo:hover {
@@ -517,6 +530,11 @@ body {
     .feature-icon {
         font-size: 3rem;
     }
+    .logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
 }
 /* --- SEKCJA NASZE PRODUKTY --- */
 

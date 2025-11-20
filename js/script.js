@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Całkowity czas trwania animacji + opóźnienie na zniknięcie
     const totalAnimationTime = 5000; 
     const showContentDelay = 4000; // Kiedy pokazać resztę strony
+    const logoTextAnimationDelay = totalAnimationTime + 500; // 0.5s po zakończeniu intro
 
     // Start animacji
     setTimeout(() => {
@@ -32,6 +33,14 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => preloader.remove(), 1000);
     }, totalAnimationTime);
 
+    // Animacja wysuwania tekstu z logo
+    setTimeout(() => {
+        const logoText = document.querySelector('.logo-text');
+        if (logoText) {
+            logoText.style.width = '120px'; // Szerokość napisu "MikroPak"
+            logoText.style.opacity = '1';
+        }
+    }, logoTextAnimationDelay);
     
     // --- 2. OBSŁUGA NAWIGACJI MOBILNEJ ---
     const menuToggle = document.querySelector('.menu-toggle');
