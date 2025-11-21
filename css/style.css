@@ -852,9 +852,9 @@ body.no-scroll {
 }
 
 @media (max-width: 768px) {
-    .products-section {
-        padding: 100px 20px 60px;
-    }
+    /*.products-section {*/
+       /* padding: 100px 20px 60px;*/
+   /* }*/
     
     .products-content h2 {
         font-size: 2rem;
