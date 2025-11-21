@@ -71,17 +71,29 @@ body {
 
 /* Logo */
 .logo {
-    /* font-size: 1.8rem; */
-    /* font-weight: bold; */
-    /* color: var(--color-primary); */
+    display: flex;
+    align-items: center;
     text-decoration: none;
-    transition: color var(--transition-speed);
     padding: 0 30px; /* Add some space around the logo */
 }
 
 .logo img {
     width: auto;
     display: block;
+    transition: transform 0.5s ease-in-out;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    display: inline-block;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: width 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    vertical-align: middle;
 }
 
 .logo:hover {
@@ -177,6 +189,72 @@ body {
         order: -1; /* Move logo to the left on mobile */
     }
 }
+
+/* --- Mobile Navigation --- */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(245, 245, 220, 0.98); /* Semi-transparent beige */
+    z-index: 1000;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.mobile-nav.is-open {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.mobile-nav li {
+    margin: 25px 0;
+}
+
+.mobile-nav a {
+    text-decoration: none;
+    color: var(--color-text-dark);
+    font-size: 2rem;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.mobile-nav a:hover {
+    color: var(--color-primary);
+}
+
+/* --- Menu Toggle Active State --- */
+.menu-toggle.is-active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.is-active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Prevent scrolling when mobile menu is open */
+body.no-scroll {
+    overflow: hidden;
+}
+
 /* Dalsza część pliku style.css */
 
 /* --- 5. Style Sekcji Hero --- */
@@ -300,19 +378,30 @@ body {
 }
 
 .intro-text {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: bold;
     color: var(--color-primary);
     opacity: 0;
     margin-top: 15px;
 }
 
+.intro-text-2 {
+    font-size: 2.5rem;
+    color: var(--color-text-dark);
+    opacity: 0;
+    margin-top: 10px;
+}
+
 .intro-logo.start-animation {
-    animation: logo-appear 1s ease-out forwards, logo-move 1.5s 2.5s ease-in-out forwards;
+    animation: logo-appear 1s ease-out forwards, logo-move 1.5s 3.5s ease-in-out forwards;
 }
 
 .intro-text.start-animation {
-    animation: text-fade-in-out 2s ease-in-out forwards;
+    animation: text-fade-in-out 3.5s ease-in-out forwards;
+}
+
+.intro-text-2.start-animation {
+    animation: text-fade-in-out 2s 1.5s ease-in-out forwards;
 }
 
 @keyframes logo-appear {
@@ -333,7 +422,7 @@ body {
 
 @keyframes logo-move {
     to {
-        transform: translateY(-41vh) scale(0.35);
+        transform: translateY(-37vh) scale(0.35);
     }
 }
 
@@ -506,6 +595,11 @@ body {
     .feature-icon {
         font-size: 3rem;
     }
+    .logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
 }
 /* --- SEKCJA NASZE PRODUKTY --- */
 
@@ -758,9 +852,9 @@ body {
 }
 
 @media (max-width: 768px) {
-    .products-section {
-        padding: 100px 20px 60px;
-    }
+    /*.products-section {*/
+       /* padding: 100px 20px 60px;*/
+   /* }*/
     
     .products-content h2 {
         font-size: 2rem;
@@ -1136,7 +1230,7 @@ body {
 }
 .nav-link-contact {
     position: relative;
-    top: 3px; /* Możesz dostosować tę wartość */
+    top: 4px; /* Możesz dostosować tę wartość */
 }
 
 
