@@ -7,7 +7,7 @@
 
 /* --- 1. Paleta Barw (Zmienne CSS) --- */
 :root {
-    --color-primary: #6B8E23;      /* Oliwkowa Zieleń - Akcent, natura */
+    --color-primary: #34913F;      /* Oliwkowa Zieleń - Akcent, natura */
     --color-secondary: #A0522D;    /* Sienna - Ciepły akcent */
     --color-background: #F5F5DC;   /* Beżowy/Kremowy - Tło */
     --color-text-dark: #2F4F4F;    /* Ciemny Łupek/Zieleń - Tekst */
@@ -259,58 +259,131 @@ body.no-scroll {
 
 /* --- 5. Style Sekcji Hero --- */
 .hero-section {
-    /* Upewnienie się, że Hero Section jest wystarczająco duża */
-    min-height: 100vh; /* Zajmuje całą wysokość widocznego ekranu */
-    padding-top: 150px; /* Odsuń treść od przyklejonego nagłówka */
+    min-height: 100vh;
+    padding-top: 70px; /* Wysokość nagłówka */
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Wyśrodkowanie treści w pionie */
-    align-items: center; /* Wyśrodkowanie treści w poziomie */
+    align-items: center;
+    justify-content: center;
     text-align: center;
     position: relative;
-    overflow: hidden; /* Na wypadek elementów wychodzących poza sekcję */
-    
-    /* Tło Sekcji Hero (Wzorując się na Baziolka - estetyka, natura) */
-    background: var(--color-background); /* Domyślne tło beżowe */
-    /* Zastąpienie koloru obrazem tła w wysokiej rozdzielczości */
-    /* Jeśli używasz obrazu, upewnij się, że jest on optymalizowany */
-    /* background-image: url('images/hero-bg.jpg');
+    overflow: hidden;
+    background-image: url('../images/bg/hero.jpg');
     background-size: cover;
     background-position: center;
-    */
+    color: var(--color-white);
 }
 
 .hero-section::before {
-    /* Opcjonalna delikatna nakładka (overlay) dla lepszej czytelności tekstu */
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.2); /* Lekka, jasna mgiełka */
+    background: rgba(0, 0, 0, 0.4); /* Ciemniejsza nakładka dla kontrastu */
+    z-index: 1;
 }
 
-.hero-section h1 {
-    /* Hasło przewodnie: "MikroPak - sztuka smaku i piękna w każdym liściu i płatku" */
-    font-size: 3.5rem;
-    color: var(--color-text-dark);
-    line-height: 1.2;
-    margin-bottom: 20px;
-    max-width: 900px;
-    position: relative; /* Ważne, by było nad overlay'em */
-    z-index: 10;
-}
-
-/* Styl dla animowanego logo (Placeholder) */
-.hero-logo-placeholder {
-    font-size: 5rem;
-    margin-bottom: 40px;
-    color: var(--color-primary);
+.hero-content {
     position: relative;
-    z-index: 10;
-    opacity: 0; /* Zaczynamy od ukrycia, by później animować */
-    animation: fadeIn 1s ease-out forwards; /* Prosta animacja wejścia */
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+    animation: fadeIn 1s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 300;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    animation: fadeIn 1s ease-out 1s forwards;
+    opacity: 0;
+}
+
+.btn-hero {
+    animation: fadeIn 1s ease-out 1.5s forwards;
+    opacity: 0;
+}
+
+/* --- Wskaźnik przewijania w dół --- */
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 50px;
+    border: 2px solid var(--color-white);
+    border-radius: 50px;
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 2s forwards;
+}
+
+.scroll-down-indicator::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 10px;
+    background-color: var(--color-white);
+    border-radius: 2px;
+    animation: scroll-anim 2s infinite;
+}
+
+@keyframes scroll-anim {
+    0% {
+        transform: translate(-50%, 0);
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    80% {
+        transform: translate(-50%, 15px);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* --- Style przycisków --- */
+.btn {
+    text-decoration: none;
+    color: var(--color-white);
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all var(--transition-speed) ease;
+    display: inline-block;
+    border: 2px solid transparent;
+}
+
+.btn-hero {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-hero:hover {
+    background-color: transparent;
+    border-color: var(--color-white);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* Prosta animacja wejścia (fade-in) */
@@ -327,19 +400,21 @@ body.no-scroll {
 
 /* Responsywność dla Hero Section */
 @media (max-width: 768px) {
-    .hero-section h1 {
-        font-size: 2.2rem;
-        padding: 0 15px;
+    .hero-title {
+        font-size: 2.8rem;
     }
 
-    .hero-logo-placeholder {
-        font-size: 3.5rem;
-        margin-bottom: 20px;
+    .hero-subtitle {
+        font-size: 1.2rem;
     }
     
     .hero-section {
-        padding-top: 100px; /* Mniejszy padding dla mobilnych */
-        min-height: 80vh; /* Może być mniejsza na mobilnych */
+        min-height: 100vh;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 0.9rem;
     }
 }
 /* Dalsza część pliku style.css */
