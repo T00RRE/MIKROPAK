@@ -522,7 +522,7 @@ body.no-scroll {
 .about-section::after {
     content: '';
     position: absolute;
-    bottom: 43%; /* Lekkie wysunięcie dla lepszego efektu */
+    bottom: 42.7%; /* Lekkie wysunięcie dla lepszego efektu */
     right: -5%;
     width: 450px; /* Dopasuj rozmiar do swoich potrzeb */
     height: 450px;
@@ -538,13 +538,13 @@ body.no-scroll {
     max-width: 1000px;
     margin: 0 auto;
     position: relative; /* Ustawienie kontekstu dla z-index */
-    z-index: 1; /* Treść nad obrazkiem tła */
+    z-index: 2; /* Treść nad obrazkiem tła */
 }
 @media (min-width: 1500px) {
     .about-section::after {
         width: 500px;
         height: 500px;
-        bottom: 43%;
+        bottom: 42.5%;
         right: 0    ;
     }
 }
@@ -552,14 +552,22 @@ body.no-scroll {
     .about-section::after {
         width: 300px;
         height: 300px;
-        bottom: 65%;
+        bottom: 64.8%;
+    }
+}
+@media (max-width: 1130px) {
+    .about-section::after {
+        width: 300px;
+        height: 300px;
+        bottom: 44.5%;
     }
 }
 @media (max-width: 768px) {
     .about-section::after {
         width: 300px;
         height: 300px;
-        bottom: 55%;
+        right: -21%;
+        bottom: 51%;
     }
 }
 /* Historia */
@@ -636,6 +644,8 @@ body.no-scroll {
 .feature-box {
     padding: 110px 50px;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .feature-box:hover {
