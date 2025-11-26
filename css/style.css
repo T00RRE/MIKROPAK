@@ -956,10 +956,15 @@ body.no-scroll {
     border: 1px solid #eee;
 }
 
+.product-item a {
+    text-decoration: none;
+}
+
 .product-item h4 {
     font-size: 1.2rem;
     color: var(--color-text-dark);
     margin: 0;
+    text-decoration: none;
 }
 
 /* --- Szczegóły produktu --- */
@@ -975,6 +980,7 @@ body.no-scroll {
     color: var(--color-primary);
     margin-bottom: 20px;
     margin-top: 30px;
+    text-decoration: none;
 }
 
 .product-details h4:first-child {
