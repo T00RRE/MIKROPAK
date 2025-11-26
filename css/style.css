@@ -944,7 +944,7 @@ body.no-scroll {
 .placeholder-image {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #e1f0d7 0%, #cde5c0 100%); /* Jaśniejszy gradient */
+    background-color: var(--color-white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -953,12 +953,18 @@ body.no-scroll {
     color: var(--color-text-dark);
     text-align: center;
     padding: 3px;
+    border: 1px solid #eee;
+}
+
+.product-item a {
+    text-decoration: none;
 }
 
 .product-item h4 {
     font-size: 1.2rem;
     color: var(--color-text-dark);
     margin: 0;
+    text-decoration: none;
 }
 
 /* --- Szczegóły produktu --- */
@@ -974,6 +980,7 @@ body.no-scroll {
     color: var(--color-primary);
     margin-bottom: 20px;
     margin-top: 30px;
+    text-decoration: none;
 }
 
 .product-details h4:first-child {
@@ -1413,6 +1420,31 @@ body.no-scroll {
 .nav-link-contact {
     position: relative;
     top: 4px; /* Możesz dostosować tę wartość */
+}
+
+/* --- Customowe Style dla Lightbox --- */
+
+/* Kontener zewnętrzny - zmiana tła i zaokrąglenia */
+.lb-outerContainer {
+  background-color: var(--color-background); /* Użycie beżowego tła z palety */
+  border-radius: 10px; /* Zaokrąglenie górnych rogów */
+}
+
+/* Obraz w lightboxie - zaokrąglenie */
+.lightbox .lb-image {
+  border-radius: 10px; /* Zaokrąglenie samego obrazu */
+}
+
+/* Kontener na opis pod zdjęciem - dopasowanie tła i zaokrąglenia */
+.lb-dataContainer {
+  background-color: var(--color-background); /* To samo beżowe tło */
+  border-bottom-left-radius: 10px !important;  /* Zaokrąglenie dolnych rogów */
+  border-bottom-right-radius: 10px !important; /* Zaokrąglenie dolnych rogów */
+}
+
+/* Usunięcie domyślnego białego tła z wewnętrznego kontenera, aby tło zewnętrzne było widoczne */
+.lb-container {
+    background-color: transparent;
 }
 
 
