@@ -598,6 +598,18 @@ body.no-scroll {
     text-align: justify;
 }
 
+.about-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.about-features-list li {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
 .about-story .about-cta {
     font-size: 1.2rem;
     font-weight: bold;
@@ -616,6 +628,7 @@ body.no-scroll {
     transform: translateY(30px);
     transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
     max-width: 1200px;
+    margin-bottom: 60px; /* Zwiększony odstęp od zakładek */
 }
 
 .about-features.fade-in {
@@ -786,6 +799,7 @@ body.no-scroll {
     font-size: 1.2rem;
     color: var(--color-text-dark);
     margin-bottom: 50px;
+    margin-top: 50px
 }
 
 /* --- Zakładki nawigacyjne --- */
@@ -797,6 +811,7 @@ body.no-scroll {
     position: relative;
     z-index: 2;
     flex-wrap: wrap;
+    margin-top: 50px;
 }
 
 .tab-button {
@@ -965,6 +980,23 @@ body.no-scroll {
     color: var(--color-text-dark);
     margin: 0;
     text-decoration: none;
+}
+
+/* Znacznik dla wielu zdjęć */
+.product-item.multi-image .product-image::before {
+    content: 'Więcej zdjęć';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 8px;
+    border-radius: 5px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    z-index: 3;
+    letter-spacing: 1px;
+    pointer-events: none; /* Aby nie blokować kliknięcia na obrazek */
 }
 
 /* --- Szczegóły produktu --- */
