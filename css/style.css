@@ -1379,7 +1379,7 @@ body.no-scroll {
 .footer-section {
     background-color: var(--color-white); /* Ciemnozielony */
     color: var(--color-text-dark);
-    padding: 40px 0 20px;
+    padding: 40px 0 40px;
     margin-top: 0;
 }
 
