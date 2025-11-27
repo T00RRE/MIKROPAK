@@ -74,7 +74,7 @@ body {
     display: flex;
     align-items: center;
     text-decoration: none;
-    padding: 0 30px; /* Add some space around the logo */
+    padding: 0 50px; /* Add some space around the logo */
 }
 
 .logo img {
@@ -104,7 +104,7 @@ body {
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: 50px; /* Odstępy między elementami menu */
+    gap: 90px; /* Odstępy między elementami menu */
 }
 
 .main-nav a {
@@ -269,7 +269,7 @@ body.no-scroll {
     overflow: hidden;
     background-image: url('../images/bg/hero.jpg');
     background-size: cover;
-    background-position: center;
+    background-position-y: 100px;
     color: var(--color-white);
 }
 
@@ -799,7 +799,7 @@ body.no-scroll {
     font-size: 1.2rem;
     color: var(--color-text-dark);
     margin-bottom: 50px;
-    margin-top: 50px
+    margin-top: 50px;
 }
 
 /* --- Zakładki nawigacyjne --- */
@@ -1035,7 +1035,7 @@ body.no-scroll {
 }
 
 .product-details ul li::before {
-    content: "✓";
+    content: "•";
     position: absolute;
     left: 0;
     color: var(--color-primary);
@@ -1477,6 +1477,58 @@ body.no-scroll {
 /* Usunięcie domyślnego białego tła z wewnętrznego kontenera, aby tło zewnętrzne było widoczne */
 .lb-container {
     background-color: transparent;
+}
+
+/* Styl dla rozwijanej listy produktów */
+.product-availability {
+    margin: 20px 0;
+}
+
+.product-availability details {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.product-availability summary {
+    padding: 15px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+.product-availability summary:hover {
+    background-color: #f0f0f0;
+}
+
+.product-availability summary::after {
+    content: '▼';
+    font-size: 12px;
+    transition: transform 0.3s;
+}
+
+.product-availability details[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.product-availability ul {
+    padding: 0 20px 15px 40px;
+    margin: 0;
+    list-style-type: disc;
+}
+
+.product-availability li {
+    padding: 5px 0;
+    color: #555;
+}
+
+.product-availability ul li::before {
+    content: none;
 }
 
 
