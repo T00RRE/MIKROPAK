@@ -28,8 +28,13 @@ body {
     font-family: var(--font-family-main);
     color: var(--color-text-dark);
     background-color: var(--color-background);
-    /* Włączenie smooth scroll dla płynnego przewijania po kliknięciu w menu */
-    scroll-behavior: smooth;
+}
+
+/* Włączenie smooth scroll dla płynnego przewijania po kliknięciu w menu - tylko na desktopie */
+@media (prefers-reduced-motion: no-preference) and (min-width: 769px) {
+    body {
+        scroll-behavior: smooth;
+    }
 }
 
 /* Kontener, który centruje i ogranicza szerokość treści */
@@ -658,12 +663,31 @@ body.no-scroll {
 .feature-box {
     position: relative;
     overflow: hidden;
-    background-color: var(--color-white);
+    /* background-color: var(--color-white); Usunięte, aby kolory z modyfikatorów działały */
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
+    cursor: pointer; /* Dodany kursor dla wszystkich feature-boxów */
+}
+
+.feature-box.tab-button {
+    padding: 0; /* Resetujemy padding z tab-button */
+    border: none; /* Usuwamy ramkę z tab-button */
+    border-radius: 0; /* Resetujemy border-radius */
+    min-width: auto; /* Resetujemy min-width */
+    gap: 0; /* Resetujemy odstęp */
+}
+
+.feature-box.tab-button.active {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(52, 145, 63, 0.3);
+}
+
+.feature-box.tab-button:not(.active):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 .feature-box-image {
@@ -815,7 +839,6 @@ body.no-scroll {
 }
 
 .tab-button {
-    background-color: var(--color-white);
     border: 2px solid var(--color-primary);
     padding: 20px 30px;
     border-radius: 4px; /* Bardziej kanciasty kształt */
@@ -1123,6 +1146,22 @@ body.no-scroll {
     box-shadow: none;
 }
 }
+@media (max-width: 480px) {
+    .products-tabs {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .tab-button {
+        min-width: auto;
+        padding: 15px 20px;
+    }
+
+    .product-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* --- SEKCJA KONTAKT --- */
 
 .contact-section {
@@ -1354,20 +1393,18 @@ body.no-scroll {
     
     .contact-item {
         flex-direction: column;
+        align-items: center;
         text-align: center;
-        padding: 20px;
     }
     
     .contact-icon {
-        font-size: 2rem;
+        margin-top: 0;
+        margin-bottom: 10px;
     }
     
     .contact-buttons {
         flex-direction: column;
-    }
-    
-    .btn {
-        width: 100%;
+        align-items: center;
     }
     
     .contact-map {
@@ -1469,7 +1506,7 @@ body.no-scroll {
 
 /* Kontener na opis pod zdjęciem - dopasowanie tła i zaokrąglenia */
 .lb-dataContainer {
-  background-color: var(--color-background); /* To samo beżowe tło */
+  background-color: rgb(226, 226, 226); /* To samo beżowe tło */
   border-bottom-left-radius: 10px !important;  /* Zaokrąglenie dolnych rogów */
   border-bottom-right-radius: 10px !important; /* Zaokrąglenie dolnych rogów */
 }

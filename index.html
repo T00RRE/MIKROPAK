@@ -98,11 +98,11 @@
     <div class="container">
         <div class="products-content">
             <h2>Nasze produkty</h2>
-
+            <p class="products-intro">Kliknij, aby poznać naszą ofertę bliżej:</p>
             <!-- Wyróżniki -->
-            <div class="about-features">
+            <div class="about-features products-tabs">
                 <div class="features-grid">
-                    <div class="feature-box feature-fresh">
+                    <div class="feature-box feature-fresh tab-button active" data-tab="cut">
                         <img src="images/onas/Rosliny_Ciete.webp" alt="Intensywny smak i świeżość" class="feature-box-image">
                         <div class="feature-icon"></div>
                         <div class="feature-content">
@@ -111,7 +111,7 @@
                         </div>
                     </div>
                     
-                    <div class="feature-box feature-quality">
+                    <div class="feature-box feature-quality tab-button" data-tab="potted">
                         <img src="images/onas/Kwiaty_w_doniczkach.webp" alt="Estetyka i jakość premium" class="feature-box-image">
                         <div class="feature-icon"></div>
                         <div class="feature-content">
@@ -120,7 +120,7 @@
                         </div>
                     </div>
                     
-                    <div class="feature-box feature-sustainable">
+                    <div class="feature-box feature-sustainable tab-button" data-tab="flowers">
                         <img src="images/onas/Mix.webp" alt="Zrównoważona uprawa" class="feature-box-image">
                         <div class="feature-icon"></div>
                         <div class="feature-content">
@@ -129,25 +129,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-                 <p class="products-intro">Kliknij, aby poznać naszą ofertę bliżej:</p>
-       
+            </div>       
             <!-- Zakładki nawigacyjne -->
-            <div class="products-tabs">
-                <button class="tab-button active" data-tab="cut">
-                    <span class="tab-icon"><img src="images/icons/products-1.svg" alt="Mikroliście cięte"></span>
-                    <span class="tab-title">Mikroliście cięte</span>
-                </button>
-                <button class="tab-button" data-tab="potted">
-                    <span class="tab-icon"><img src="images/icons/product-2.svg" alt="Mikroliście w doniczkach"></span>
-                    <span class="tab-title">Mikroliście w doniczkach</span>
-                </button>
-                <button class="tab-button" data-tab="flowers">
-                    <span class="tab-icon"><img src="images/icons/product-3.svg" alt="Kwiaty jadalne"></span>
-                    <span class="tab-title">Kwiaty jadalne</span>
-                </button>
-            </div>
+            
             
             <!-- Zawartość zakładek -->
             <div class="products-tabs-content">
@@ -198,6 +182,14 @@
                                 <img src="images/mikroliscie_ciete/Kapusta pak-choi zielona.webp" alt="Kapusta pak-choi zielona">
                             </div>
                             <h4>Kapusta pak-choi zielona</h4>
+                            </a>
+                        </div>
+                        <div class="product-item">
+                            <a href="images/kwiaty_jadalne/duze/Kukurydza_popcorn.png" data-lightbox="Kukurydza_popcorn" data-title="Kukurydza_popcorn">
+                                <div class="product-image">
+                                    <div class="placeholder-image"><img src="images/kwiaty_jadalne/Kukurydza_popcorn.webp" alt="Kukurydza_popcorn"></div>
+                                </div>
+                                <h4>Kukurydza_popcorn</h4>
                             </a>
                         </div>
                         <div class="product-item">
@@ -443,7 +435,7 @@
                             </a>
                         </div>
                         <div class="product-item multi-image">
-                            <a href="images/mikroliscie_doniczka/duze/Mix_doniczka_1.JPEG" data-lightbox="Mix_doniczka" data-title="Mix_doniczka">
+                            <a href="images/mikroliscie_doniczka/duze/Mix_doniczka.png" data-lightbox="Mix_doniczka" data-title="Mix_doniczka">
                                 <div class="product-image">
                                     <img src="images/mikroliscie_doniczka/Mix_doniczka.webp">
                                 </div>
@@ -576,14 +568,7 @@
                             <a href="images/kwiaty_jadalne/duze/Goździk 4.jpg" data-lightbox="Goździk" data-title="Goździk Widok 3" style="display: none;"></a>
                             <a href="images/kwiaty_jadalne/duze/Goździk.jpg" data-lightbox="Goździk" data-title="Goździk Widok 4" style="display: none;"></a>    
                         </div>
-                         <div class="product-item">
-                            <a href="images/kwiaty_jadalne/duze/Kukurydza_popcorn.png" data-lightbox="Kukurydza_popcorn" data-title="Kukurydza_popcorn">
-                                <div class="product-image">
-                                    <div class="placeholder-image"><img src="images/kwiaty_jadalne/Kukurydza_popcorn.webp" alt="Kukurydza_popcorn"></div>
-                                </div>
-                                <h4>Kukurydza_popcorn</h4>
-                            </a>
-                        </div>
+                         
                         <div class="product-item multi-image">
                             <a href="images/kwiaty_jadalne/duze/Lwia paszcza 3.jpg" data-lightbox="Lwia Paszcza" data-title="Lwia Paszcza">
                                 <div class="product-image">
